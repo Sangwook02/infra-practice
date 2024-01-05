@@ -50,4 +50,4 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/infra_practice_server:latest
-            sudo docker run -d -p 8080:8080 --name deploy_container
+            sudo docker run -d -p 8080:8080 --name deploy_container ${{ secrets.DOCKERHUB_USERNAME }}/infra_practice_server:latest
