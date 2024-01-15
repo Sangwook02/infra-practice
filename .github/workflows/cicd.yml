@@ -65,8 +65,8 @@ jobs:
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         with:
-          username: ubuntu
           host: ${{ secrets.INFRA_PRACTICE_SERVER_IP }}
+          username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           envs: DOCKERHUB_USERNAME
           script: |
