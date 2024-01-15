@@ -1,20 +1,6 @@
 version: "3.8"
 
 services:
-  nginx:
-    image: nginx
-    container_name: nginxserver
-    restart: always
-    ports:
-      - "80:80"
-    build:
-        context: ./nginx
-        dockerfile: Dockerfile
-    depends_on:
-      - backend
-    network_mode: host
-    environment:
-      - TZ=Asia/Seoul
   backend:
     image: ${DOCKERHUB_USERNAME}/infra_practice_server:latest
     container_name: deploy_container
