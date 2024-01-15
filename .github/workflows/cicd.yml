@@ -46,6 +46,14 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/infra_practice_server:latest
 
+      - name: copy docker-compose -> EC2 server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.INFRA_PRACTICE_SERVER_IP }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: docker-compose.yml
+          target: /home/ubuntu/
 
   deploy:
     runs-on: ubuntu-latest
