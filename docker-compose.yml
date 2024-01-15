@@ -7,8 +7,9 @@ services:
     restart: always
     ports:
       - "80:80"
-    volumes:
-      - ./nginx.conf.d:/etc/nginx/conf.d
+    build:
+        context: ./nginx
+        dockerfile: Dockerfile
     depends_on:
       - backend
     network_mode: host
