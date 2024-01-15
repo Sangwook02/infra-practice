@@ -70,5 +70,6 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           envs: DOCKERHUB_USERNAME
           script: |
-            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/infra_practice_server:latest
-            sudo docker run -d -p 80:8080 --name deploy_container ${{ secrets.DOCKERHUB_USERNAME }}/infra_practice_server:latest
+            echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/infra_practice_server:latest
+            docker compose -f /home/ubuntu/docker-compose.yml up -d
