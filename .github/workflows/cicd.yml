@@ -61,7 +61,7 @@ jobs:
     needs: build
     steps:
       - name: Docker compose
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@1.0.3
         with:
           username: ubuntu
           host: ${{ secrets.INFRA_PRACTICE_SERVER_IP }}
