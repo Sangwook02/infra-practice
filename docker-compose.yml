@@ -5,8 +5,8 @@ services:
     image: ${DOCKERHUB_USERNAME}/infra_practice_server:latest
     container_name: deploy_container
     restart: always
-    ports:
-      - "8080:8080"
+    expose:
+      - 8080
     network_mode: host
     env_file:
       - .env
