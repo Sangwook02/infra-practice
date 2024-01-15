@@ -12,3 +12,17 @@ services:
       - .env
     environment:
       - TZ=Asia/Seoul
+
+  nginx:
+    image: nginx
+    container_name: nginxserver
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./default.conf.d:/etc/nginx/conf.d
+    depends_on:
+      - backend
+    network_mode: host
+    environment:
+      - TZ=Asia/Seoul
