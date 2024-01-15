@@ -71,6 +71,6 @@ jobs:
           envs: DOCKERHUB_USERNAME
           script: |
             echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
-            docker pull ${{ env.DOCKERHUB_USERNAME }}/infra_practice_server:latest
-            docker compose -f /home/ubuntu/docker-compose.yml up -d
-            docker image prune -a -f
+            sudo docker pull ${{ env.DOCKERHUB_USERNAME }}/infra_practice_server:latest
+            sudo docker compose -f /home/ubuntu/docker-compose.yml up -d
+            sudo docker image prune -a -f
