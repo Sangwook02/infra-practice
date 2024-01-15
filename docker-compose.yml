@@ -6,7 +6,7 @@ services:
     container_name: deploy_container
     restart: always
     ports:
-      - "80:8080"
+      - "8080:8080"
     network_mode: host
     env_file:
       - .env
