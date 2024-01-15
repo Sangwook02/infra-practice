@@ -8,7 +8,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./default.conf.d:/etc/nginx/conf.d
+      - ./nginx.conf.d:/etc/nginx/conf.d
     depends_on:
       - backend
     network_mode: host
@@ -19,7 +19,7 @@ services:
     container_name: deploy_container
     restart: always
     expose:
-      - 8080
+      - "8080"
     network_mode: host
     env_file:
       - .env
