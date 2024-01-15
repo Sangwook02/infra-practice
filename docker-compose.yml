@@ -1,18 +1,6 @@
 version: "3.8"
 
 services:
-  backend:
-    image: ${DOCKERHUB_USERNAME}/infra_practice_server:latest
-    container_name: deploy_container
-    restart: always
-    expose:
-      - 8080
-    network_mode: host
-    env_file:
-      - .env
-    environment:
-      - TZ=Asia/Seoul
-
   nginx:
     image: nginx
     container_name: nginxserver
@@ -24,5 +12,16 @@ services:
     depends_on:
       - backend
     network_mode: host
+    environment:
+      - TZ=Asia/Seoul
+  backend:
+    image: ${DOCKERHUB_USERNAME}/infra_practice_server:latest
+    container_name: deploy_container
+    restart: always
+    expose:
+      - 8080
+    network_mode: host
+    env_file:
+      - .env
     environment:
       - TZ=Asia/Seoul
