@@ -62,10 +62,13 @@ jobs:
     steps:
       - name: Docker compose
         uses: appleboy/ssh-action@1.0.3
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         with:
           username: ubuntu
           host: ${{ secrets.INFRA_PRACTICE_SERVER_IP }}
           key: ${{ secrets.EC2_SSH_KEY }}
+          envs: DOCKERHUB_USERNAME
           script: |
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/infra_practice_server:latest
             sudo docker run -d -p 80:8080 --name deploy_container ${{ secrets.DOCKERHUB_USERNAME }}/infra_practice_server:latest
