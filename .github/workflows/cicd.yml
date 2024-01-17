@@ -50,7 +50,7 @@ jobs:
           host: ${{ secrets.INFRA_PRACTICE_SERVER_IP }}
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: docker-compose.yml
+          source: docker-compose.yml, nginx.conf
           target: /home/ubuntu/
 
   deploy:
