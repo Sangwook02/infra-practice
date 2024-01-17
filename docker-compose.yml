@@ -18,7 +18,7 @@ services:
     image: ${DOCKERHUB_USERNAME}/infra_practice_server:latest
     container_name: deploy_container
     restart: always
-    build: .
+#    build: .
     ports:
       - "8080:8080"
     network_mode: host
